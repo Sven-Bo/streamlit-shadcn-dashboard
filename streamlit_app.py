@@ -95,20 +95,24 @@ else:
 
 # Display the data
 vega_spec = {
-    "mark": {
-        "type": "bar",
-        "cornerRadiusEnd": 4,  # Adjust the corner radius for rounded bars
-    },
+    "mark": {"type": "bar", "cornerRadiusEnd": 4},
     "encoding": {
         "x": {
             "field": filtered_data.columns[0],
             "type": "nominal",
-            "axis": {"labelAngle": 0, "title": None},  # Hides the x-axis title
+            "axis": {
+                "labelAngle": 0,
+                "title": None,  # Hides the x-axis title
+                "grid": False,  # Removes the x-axis gridlines
+            },
         },
         "y": {
             "field": "sales_amount",
             "type": "quantitative",
-            "axis": {"title": None},  # Hides the y-axis title
+            "axis": {
+                "title": None,  # Hides the y-axis title
+                "grid": False,  # Removes the y-axis gridlines
+            },
         },
         "color": {"value": BAR_CHART_COLOR},
     },
