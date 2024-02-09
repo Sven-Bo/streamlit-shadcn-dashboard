@@ -93,7 +93,24 @@ else:
     # Ensure month column is formatted as two digits for consistency
     filtered_data["month"] = filtered_data["month"].apply(lambda x: f"{x:02d}")
 
+# Display the data
+vega_spec = {
+    "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 4,  # Adjust the corner radius here for rounded bars
+    },
+    "encoding": {
+        "x": {
+            "field": filtered_data.columns[0],
+            "type": "nominal",
+            "axis": {"labelAngle": 0},
+        },
+        "y": {"field": "sales_amount", "type": "quantitative"},
+        "color": {"value": BAR_CHART_COLOR},
+    },
+    "data": {
+        "values": filtered_data.to_dict("records")
+    },  # Convert DataFrame to a list of dictionaries
+}
 with card_container(key="chart"):
-    st.bar_chart(
-        filtered_data.set_index(filtered_data.columns[0]), color=BAR_CHART_COLOR
-    )
+    st.vega_lite_chart(vega_spec, use_container_width=True)
