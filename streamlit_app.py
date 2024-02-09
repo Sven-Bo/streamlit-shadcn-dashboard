@@ -97,20 +97,26 @@ else:
 vega_spec = {
     "mark": {
         "type": "bar",
-        "cornerRadiusEnd": 4,  # Adjust the corner radius here for rounded bars
+        "cornerRadiusEnd": 4,  # Adjust the corner radius for rounded bars
     },
     "encoding": {
         "x": {
             "field": filtered_data.columns[0],
             "type": "nominal",
-            "axis": {"labelAngle": 0},
+            "axis": {"labelAngle": 0, "title": None},  # Hides the x-axis title
         },
-        "y": {"field": "sales_amount", "type": "quantitative"},
+        "y": {
+            "field": "sales_amount",
+            "type": "quantitative",
+            "axis": {"title": None},  # Hides the y-axis title
+        },
         "color": {"value": BAR_CHART_COLOR},
     },
     "data": {
-        "values": filtered_data.to_dict("records")
-    },  # Convert DataFrame to a list of dictionaries
+        "values": filtered_data.to_dict(
+            "records"
+        )  # Convert DataFrame to a list of dictionaries
+    },
 }
 with card_container(key="chart"):
     st.vega_lite_chart(vega_spec, use_container_width=True)
