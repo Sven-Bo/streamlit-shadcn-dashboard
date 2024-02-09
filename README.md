@@ -1,7 +1,7 @@
 # Streamlit Sales Dashboard with Shadcn UI
 
 This project presents a sales dashboard utilizing Streamlit and the [Shadcn UI package](https://github.com/ObservedObserver/streamlit-shadcn-ui). It provides insights into sales data across different cities, showcasing both annual and monthly performance metrics.
-### 👉 Access the dashboard: https://www.shadcn-dashboard.streamlit.app/
+### 👉 Access the dashboard: [https://www.shadcn-dashboard.streamlit.app/](https://shadcn-dashboard.streamlit.app/)
 
 ## Demo
 ![Dashboard Demo](Dashboard_Demo.png)
